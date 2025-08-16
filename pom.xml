@@ -53,7 +53,7 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Allure Rest-Assured (если будешь тестировать API) -->
+        <!-- Allure Rest-Assured  -->
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-rest-assured</artifactId>
@@ -61,7 +61,7 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Lombok (опционально, для упрощения кода) -->
+        <!-- Lombok  -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -69,7 +69,7 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- Selenium DevTools (для CDP, если нужно) -->
+        <!-- Selenium DevTools (для CDP) -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-devtools-v129</artifactId>
