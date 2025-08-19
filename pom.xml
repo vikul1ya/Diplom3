@@ -8,6 +8,7 @@
     <artifactId>diplom3</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
@@ -16,20 +17,20 @@
         <allure.version>2.27.0</allure.version>
         <selenium.version>4.26.0</selenium.version>
         <webdrivermanager.version>5.9.0</webdrivermanager.version>
-        <junit.version>4.13.2</junit.version>
         <lombok.version>1.18.28</lombok.version>
-        <maven.surefire.plugin.version>3.2.5</maven.surefire.plugin.version>
+        <rest-assured.version>5.3.0</rest-assured.version>
+        <junit.version>4.13.2</junit.version>
     </properties>
 
     <dependencies>
-        <!-- Selenium Java -->
+
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>${selenium.version}</version>
         </dependency>
 
-        <!-- WebDriverManager (автоустановка драйверов) -->
+
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
@@ -37,31 +38,34 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- JUnit 4 -->
+
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${rest-assured.version}</version>
+        </dependency>
+
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
-            <scope>test</scope>
         </dependency>
 
-        <!-- Allure JUnit4 Adapter -->
+
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-junit4</artifactId>
             <version>${allure.version}</version>
-            <scope>test</scope>
         </dependency>
-
-        <!-- Allure Rest-Assured  -->
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-rest-assured</artifactId>
             <version>${allure.version}</version>
-            <scope>test</scope>
         </dependency>
 
-        <!-- Lombok  -->
+
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -69,7 +73,7 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- Selenium DevTools (для CDP) -->
+
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-devtools-v129</artifactId>
@@ -79,33 +83,24 @@
 
     <build>
         <plugins>
-            <!-- Surefire Plugin (запуск тестов) -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>${maven.surefire.plugin.version}</version>
+                <version>2.22.2</version>
                 <configuration>
                     <testFailureIgnore>false</testFailureIgnore>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-                        -Dfile.encoding=UTF-8
                     </argLine>
-                    <systemProperties>
-                        <property>
-                            <name>allure.results.directory</name>
-                            <value>${project.build.directory}/allure-results</value>
-                        </property>
-                        <property>
-                            <name>junit.jupiter.extensions.autodetection.enabled</name>
-                            <value>true</value>
-                        </property>
-                    </systemProperties>
                     <properties>
                         <property>
                             <name>listener</name>
                             <value>io.qameta.allure.junit4.AllureJunit4</value>
                         </property>
                     </properties>
+                    <systemPropertyVariables>
+                        <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
+                    </systemPropertyVariables>
                 </configuration>
                 <dependencies>
                     <dependency>
@@ -116,7 +111,6 @@
                 </dependencies>
             </plugin>
 
-            <!-- Allure Maven Plugin (для генерации отчёта) -->
             <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
@@ -126,16 +120,10 @@
                 </configuration>
             </plugin>
 
-            <!-- Compiler Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.13.0</version>
-                <configuration>
-                    <source>${maven.compiler.source}</source>
-                    <target>${maven.compiler.target}</target>
-                    <encoding>${project.build.sourceEncoding}</encoding>
-                </configuration>
             </plugin>
         </plugins>
     </build>

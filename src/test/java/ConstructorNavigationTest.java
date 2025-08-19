@@ -1,12 +1,13 @@
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.*;
 import org.openqa.selenium.WebDriver;
-import ru.practicum.ConstructorPage;
+import ru.practicum.Page.ConstructorPage;
 import ru.practicum.DriverFactory;
-
-
 import static org.junit.Assert.assertEquals;
+import io.qameta.allure.Description;
 
+
+@DisplayName("Навигация по разделам конструктора")
 public class ConstructorNavigationTest {
 
     private DriverFactory driverFactory = new DriverFactory();
@@ -24,19 +25,21 @@ public class ConstructorNavigationTest {
     }
 
     @Test
-    @DisplayName("Переход между разделами:Булки")
+    @DisplayName("Переход в раздел 'Булки'")
+    @Description("Проверка, что вкладка 'Булки' становится активной")
     public void switchToBunsTest() {
         ConstructorPage constructorPage = new ConstructorPage(driver);
         constructorPage.open();
 
-        constructorPage.clickSauces(); // кликаем на "Соусы", чтобы уйти с "Булок"
-        constructorPage.clickBuns();  // возвращаемся на "Булки"
+        constructorPage.clickSauces();
+        constructorPage.clickBuns();
 
         assertEquals("Активный раздел должен быть 'Булки'", "Булки", constructorPage.getActiveTabText());
     }
 
     @Test
-    @DisplayName("Переход между разделами:Соусы")
+    @DisplayName("Переход в раздел 'Соусы'")
+    @Description("Проверка, что вкладка 'Соусы' становится активной")
     public void switchToSaucesTest() {
         ConstructorPage constructorPage = new ConstructorPage(driver);
         constructorPage.open();
@@ -47,7 +50,8 @@ public class ConstructorNavigationTest {
     }
 
     @Test
-    @DisplayName("Переход между разделами:Начинки")
+    @DisplayName("Переход в раздел 'Начинки'")
+    @Description("Проверка, что вкладка 'Начинки' становится активной")
     public void switchToFillingsTest() {
         ConstructorPage constructorPage = new ConstructorPage(driver);
         constructorPage.open();
