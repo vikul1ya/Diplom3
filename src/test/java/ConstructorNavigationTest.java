@@ -1,7 +1,7 @@
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.*;
 import org.openqa.selenium.WebDriver;
-import ru.practicum.Page.ConstructorPage;
+import ru.practicum.page.ConstructorPage;
 import ru.practicum.DriverFactory;
 import static org.junit.Assert.assertEquals;
 import io.qameta.allure.Description;

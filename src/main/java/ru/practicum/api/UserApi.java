@@ -1,4 +1,5 @@
-package ru.practicum.Api;
+package ru.practicum.api;
+import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;
 
@@ -9,6 +10,7 @@ public class UserApi {
 
     private static final String BASE_URL = "https://stellarburgers.nomoreparties.site";
 
+    @Step("Создаем пользователя")
     public static ValidatableResponse createUser(User user) {
         return given()
                 .baseUri(BASE_URL)
@@ -19,6 +21,7 @@ public class UserApi {
                 .then();
     }
 
+    @Step("Удаляем пользователя")
     public static ValidatableResponse deleteUser(String accessToken) {
         return given()
                 .baseUri(BASE_URL)
@@ -28,6 +31,7 @@ public class UserApi {
                 .then();
     }
 
+    @Step("Авторизация пользователя")
     public static ValidatableResponse login(User user) {
         return given()
                 .baseUri(BASE_URL)
@@ -38,6 +42,7 @@ public class UserApi {
                 .then();
     }
 
+    @Step("Удаление пользователя после успешной авторизации")
     public static void deleteUserRequest(User user) {
         try {
             // Сначала логинимся, чтобы получить токен

@@ -1,4 +1,4 @@
-package ru.practicum.Api;
+package ru.practicum.api;
 
 public class User {
     private String email;

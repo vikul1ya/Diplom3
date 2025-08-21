@@ -3,13 +3,13 @@ import org.junit.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
-import ru.practicum.Api.User;
-import ru.practicum.Api.UserApi;
-import ru.practicum.Page.ConstructorPage;
+import ru.practicum.api.User;
+import ru.practicum.api.UserApi;
+import ru.practicum.page.ConstructorPage;
 import ru.practicum.DriverFactory;
-import ru.practicum.Page.FormRecoverPasswordPage;
-import ru.practicum.Page.LoginPage;
-import ru.practicum.Page.RegisterPage;
+import ru.practicum.page.FormRecoverPasswordPage;
+import ru.practicum.page.LoginPage;
+import ru.practicum.page.RegisterPage;
 
 import static org.junit.Assert.assertTrue;
 

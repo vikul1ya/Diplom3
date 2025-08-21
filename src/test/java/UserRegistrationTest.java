@@ -3,10 +3,10 @@ import org.junit.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
-import ru.practicum.Api.User;
-import ru.practicum.Api.UserApi;
+import ru.practicum.api.User;
+import ru.practicum.api.UserApi;
 import ru.practicum.DriverFactory;
-import ru.practicum.Page.RegisterPage;
+import ru.practicum.page.RegisterPage;
 
 import static org.junit.Assert.assertTrue;
 import io.qameta.allure.Description;
